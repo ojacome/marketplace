@@ -10,6 +10,12 @@ return [
         'log.LogEnabled' => true,
         'log.FileName' => storage_path('/logs/paypal.log'),
         'log.LogLevel' => 'Error'
-    ]
+    ],
 
+    "msgState" => [
+        'created' => 'La transacción fue creada con éxito. Falta aprobación del usuario',
+        'approved' => 'Transacción exitosa, pronto te contactaremos para coordinar la entrega.',
+        'failed' => 'Disculpa, la transacción ha fallado.',
+        'unknown' => 'Algo ha salido mal, inténtalo mas tarde.'
+    ]
 ];

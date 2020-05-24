@@ -92,15 +92,15 @@
                     </table>
                     
                     <div class="text-center">
-                        <form  method="post" action="{{ url('/order') }}">
+                        <!-- <form  method="post" action="{{ url('/order') }}">
                         @csrf
                             <button class="btn btn-primary btn-round" >
                                 <i class="material-icons">done</i> Continuar
                             </button>
-                        </form>
+                        </form> -->
 
                         <a class="btn btn-primary btn-round" href="{{ url('/paypal/pay')}}" >
-                            <i class="material-icons">monetization_on</i> Pagar
+                            <i class="material-icons">monetization_on</i> Continuar
                         </a>
                     </div> 
                     @endif

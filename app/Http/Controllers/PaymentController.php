@@ -17,14 +17,15 @@ use PayPal\Exception\PayPalConnectionException;
 class PaymentController extends Controller
 {
     private $apiContext;
+    private $payPalConfig;
 
     public function __construct(){
-        $payPalConfig = Config::get('paypal');
+        $this->payPalConfig = Config::get('paypal');
 
         $this->apiContext = new ApiContext(
             new OAuthTokenCredential(
-                $payPalConfig['client_id'],     // ClientID
-                $payPalConfig['secret']      // ClientSecret
+                $this->payPalConfig['client_id'],     // ClientID
+                $this->payPalConfig['secret']      // ClientSecret
             )
         );
     }
@@ -35,7 +36,7 @@ class PaymentController extends Controller
         $payer->setPaymentMethod('paypal');
 
         $amount = new Amount();
-        $amount->setTotal('1.00');
+        $amount->setTotal(auth()->user()->cart->calcularTotal());
         $amount->setCurrency('USD');
 
         $transaction = new Transaction();
@@ -64,7 +65,9 @@ class PaymentController extends Controller
         catch (PayPalConnectionException $ex) {
             // This will print the detailed information on the exception.
             //REALLY HELPFUL FOR DEBUGGING
-            echo $ex->getData();
+            //echo $ex->getData();
+
+            return redirect('/paypal/status');
         }
     }
 
@@ -89,7 +92,7 @@ class PaymentController extends Controller
             $execution->setPayerId($payer);
     
             $result = $payment->execute($execution, $this->apiContext);
-            $payStatus = $result->getState();
+            $state = $result->getState();
 
             //update cart 
             $cart = auth()->user()->cart;
@@ -98,10 +101,14 @@ class PaymentController extends Controller
             $cart->save();
 
             // dd($result);
+
+            $payStatus = $this->mensajeState($state);
             
-            if($payStatus !== 'approved'){                
+            if($state !== 'approved'){ 
+                            
                 return redirect('/home')->with(compact('payStatus'));
             }
+
             
             return redirect('/order')->with(compact('payStatus'));
 
@@ -110,5 +117,26 @@ class PaymentController extends Controller
             return redirect('/home')->with(compact('ex'));
         }        
 
+    }
+
+    public function mensajeState($state){
+
+        $msg = '';
+
+        switch($state){
+            case('created'):
+                $msg = $this->payPalConfig['msgState']['created'];  
+            break;
+            case('approved'):
+                $msg = $this->payPalConfig['msgState']['approved'];  
+            break;
+            case('failed'):
+                $msg = $this->payPalConfig['msgState']['failed'];  
+            break;
+            default:
+                $msg = $this->payPalConfig['msgState']['unknown'];                  
+        }
+
+        return $msg;
     }
 }
