@@ -99,8 +99,8 @@
                             </button>
                         </form> -->
 
-                        <a class="btn btn-primary btn-round" href="{{ url('/paypal/pay')}}" >
-                            <i class="material-icons">monetization_on</i> Continuar
+                        <a class="btn btn-primary btn-simple" href="{{ url('/paypal/pay')}}" >                            
+                            <img src="{{ asset('/img/paypal.png') }}" alt="paypal">
                         </a>
                     </div> 
                     @endif

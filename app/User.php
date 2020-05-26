@@ -62,7 +62,7 @@ class User extends Authenticatable
     //accessor cart
     public function getOrdersAttribute(){
 
-        $orders = $this->carts()->where('status','<>' ,'Active')->get();
+        $orders = $this->carts()->where('status','<>' ,'Active')->latest('updated_at')->get();
 
         // dd($orders);
         return $orders;
