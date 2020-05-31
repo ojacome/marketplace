@@ -12,15 +12,16 @@
 					<form class="form "method="POST" action="{{ route('login') }}">
 				@csrf
 						<div class="header header-primary text-center">
-							<h4>Inicio de Sesión</h4>
+							<h4>Inicia Sesión</h4>													
 							<!-- <div class="social-line">
+								<label >con</label>
 								<a href="#pablo" class="btn btn-simple btn-just-icon">
 									<i class="fa fa-facebook-square"></i>
 								</a>
 								<a href="#pablo" class="btn btn-simple btn-just-icon">
 									<i class="fa fa-twitter"></i>
 								</a>
-								<a href="#pablo" class="btn btn-simple btn-just-icon">
+								<a href="{{ url('/auth/redirect/google') }}" class="btn btn-simple btn-just-icon">
 									<i class="fa fa-google-plus"></i>
 								</a>
 							</div> -->
@@ -75,10 +76,19 @@
 							
 						</div>
 						<div class="footer text-center">
-							<button type="submit" class="btn btn-simple btn-primary btn-lg">Ingresar</a>
+							<button type="submit" class="btn btn-simple btn-primary btn-lg">Ingresar</a>						
+
+							<div class="or-container">
+								<div class="line-separator"></div>
+								<div class="or-label">or</div>
+								<div class="line-separator"></div>
+							</div>
+												
+							<a class="btn btn-simple btn-primary btn-lg" href="{{ url('/auth/redirect/google') }}">
+							<img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+							Ingresar con Google
+							</a>
 						</div>
-						
-						
 
 					</form>
 				</div>

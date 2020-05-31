@@ -34,4 +34,10 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'google' => [
+        "client_id" => env('GOOGLE_CLIENT_ID'),
+        "client_secret" => env('GOOGLE_SECRET'),
+        "redirect" => env('GOOGLE_REDIRECT', 'http://localhost:8000/callback/google')
+    ],
+
 ];
