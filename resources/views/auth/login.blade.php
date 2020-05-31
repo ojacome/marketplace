@@ -13,18 +13,18 @@
 				@csrf
 						<div class="header header-primary text-center">
 							<h4>Inicia Sesión</h4>													
-							<!-- <div class="social-line">
+							<div class="social-line">
 								<label >con</label>
-								<a href="#pablo" class="btn btn-simple btn-just-icon">
+								<a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-simple btn-just-icon">
 									<i class="fa fa-facebook-square"></i>
 								</a>
-								<a href="#pablo" class="btn btn-simple btn-just-icon">
+								<!-- <a href="#pablo" class="btn btn-simple btn-just-icon">
 									<i class="fa fa-twitter"></i>
-								</a>
+								</a> -->
 								<a href="{{ url('/auth/redirect/google') }}" class="btn btn-simple btn-just-icon">
 									<i class="fa fa-google-plus"></i>
 								</a>
-							</div> -->
+							</div>
 						</div>
 						<p class="text-divider">Ingresa tus datos</p>
 						<div class="content">							
@@ -75,19 +75,24 @@
 							</div>
 							
 						</div>
-						<div class="footer text-center">
-							<button type="submit" class="btn btn-simple btn-primary btn-lg">Ingresar</a>						
+						<div class="footer text-center">							
+							<button type="submit" class="btn btn-simple btn-primary btn-lg">Ingresar</button>						
 
-							<div class="or-container">
+							<!-- <div class="or-container">
 								<div class="line-separator"></div>
 								<div class="or-label">or</div>
 								<div class="line-separator"></div>
 							</div>
 												
-							<a class="btn btn-simple btn-primary btn-lg" href="{{ url('/auth/redirect/google') }}">
-							<img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+							<a class="btn btn-simple btn-primary " href="{{ url('/auth/redirect/google') }}">
+							<img width="20px"  alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
 							Ingresar con Google
 							</a>
+
+							<a class="btn btn-simple btn-primary " href="{{ url('/auth/redirect/facebook') }}">
+							<img width="20px" alt="Facebook sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/220px-Facebook_f_logo_%282019%29.svg.png" />
+							Ingresar con Facebook
+							</a>							 -->
 						</div>
 
 					</form>

@@ -40,4 +40,9 @@ return [
         "redirect" => env('GOOGLE_REDIRECT', 'http://localhost:8000/callback/google')
     ],
 
+    'facebook' => [
+        "client_id" => env('FACEBOOK_CLIENT_ID'),
+        "client_secret" => env('FACEBOOK_SECRET'),
+        "redirect" => env('FACEBOOK_REDIRECT', 'http://localhost:8000/callback/facebook')
+    ],
 ];
