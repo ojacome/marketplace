@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+	<script src="https://kit.fontawesome.com/484708320b.js" crossorigin="anonymous"></script>
 
 	<!-- CSS Files -->
     <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" />
@@ -119,7 +120,9 @@
         @yield('content')
     </div>
 	
-
+	<a href="https://wa.me/593969786985/?text=Hola!" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+	<a href="https://m.me/olmedo.jacome" class="messenger" target="_blank"> <i class="fab fa-facebook-messenger messenger-icon"></i></a>
+	
 </body>
 
 
